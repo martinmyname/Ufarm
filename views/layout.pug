@@ -1,0 +1,55 @@
+doctype html
+head
+    meta(charset='UTF-8')
+    meta(name='viewport' content='width=device-width, initial-scale=1.0')
+    title #{title}
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous")
+    link(rel='stylesheet' href='/css/style.css')
+    //Nav bar and its buttons and dropdowns
+    nav.navbar.navbar-expand-lg.navbar-dark.text-light
+        a.navbar-brand(href='/') Ufarm
+        button.navbar-toggler(type='button' data-toggle='collapse' data-target='#basicExampleNav' aria-controls='basicExampleNav' aria-expanded='false' aria-label='Toggle navigation')
+            span.navbar-toggler-icon
+        #basicExampleNav.collapse.navbar-collapse
+            ul.navbar-nav.mr-auto
+                li.nav-item.active
+                    a.nav-link(href='/')
+                        | Home
+                    span.sr-only (current)
+                li.nav-item
+                    a.nav-link(href='#') Features
+                //Ufarm users dropdown
+                li.nav-item.dropdown
+                    a#navbarDropdownMenuLink1.nav-link.dropdown-toggle(data-toggle='dropdown' aria-haspopup='true' aria-expanded='false') User
+                    .dropdown-menu.dropdown-primary(aria-labelledby='navbarDropdownMenuLink1')
+                        a.dropdown-item(href='/upload') Urban Farmer
+                        a.dropdown-item(href='/users/urbanFarmers') Farmer One
+                        a.dropdown-item(href='/users/farmerOnes') Agricultural Officer
+                        a.dropdown-item(href='/') Customer
+            // Links
+            form.form-inline.search(action="/productList")
+                .md-form.my-0
+                    input.form-control.mr-sm-2(type='text' name='product_name' placeholder='Search for product' aria-label='Search')
+                .md-form.my-0
+                    input.btn.btn-light.btn-block(type="submit")
+    block content
+block foot
+    // Footer
+    footer.page-footer.font-small.unique-color-dark.pt-4
+        .container
+            ul.list-unstyled.list-inline.text-center.py-2
+                li.list-inline-item
+                    h5.mb-1 The best online fresh food market nearly free!
+                li.list-inline-item
+                    a.btn.btn-outline-white.btn-rounded(href='www.gmail.com') Send us feedback on: Ufarm@gmail.com
+                .footer-copyright.text-center.py-3
+                    | Copyright &copy;
+                    script.
+                            document.write(new Date().getFullYear());
+                    |  All rights reserved
+                    i(aria-hidden='true')
+                    |  by 
+                    a(href='/' target='_blank') Ufarm
+    script(src='https://code.jquery.com/jquery-3.3.1.slim.min.js' integrity='sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo' crossorigin='anonymous')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js' integrity='sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49' crossorigin='anonymous')
+    script(src='https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js' integrity='sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy' crossorigin='anonymous')

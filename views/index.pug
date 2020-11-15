@@ -1,0 +1,21 @@
+extends layout
+block content
+  body
+    div.fluid-container.listing-reg
+    ul.team
+      if product.length
+        each produce in product
+          li
+            figure.figure-img.img-fluid(style="background-color:white;")
+              img(src=`${produce.image.path}` alt=`${produce.product_name} ${produce.product_id}`)
+              figcaption 
+                h4 #{'.\ '+produce.product_name}: #{produce.price}Ugx
+                h5 Quantity:#{produce.product_quantity} kg(s)
+                p  Type:#{produce.produce_type} &nbsp Ward:#{produce.ward}
+                p Payment:#{produce.Mode_of_payment} &nbsp Delivery:#{produce.Mode_of_delivery}
+                a(href='#{produce.directions}' target='_blank')
+                  i.fas.fa-directions 
+                button#purchase.btn.btn-primary(name="purchase")
+                  a(href="/checkout/+#{product}") purchase
+      else
+        p You are all caught up at the moment, check back soon for new products

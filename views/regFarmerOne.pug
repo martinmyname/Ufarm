@@ -1,0 +1,64 @@
+extends layout
+block content
+    #foot.container.listing-reg
+      h2(style='text-align: center') FARMER-ONE Sign Up form.
+      h5(style='text-align: center;color:red;')
+        | *Only filled by Agricultural officer*
+      form(name='regFarmerOne' action='/users/regFarmerOne' method='POST')
+        .row
+          .form-group.col-xs-6
+            label(for='firstName') First Name:
+            input.form-control(type='text' placeholder='first name should be 5-50 characters' name='firstName')
+          .form-group.col-xs-6
+            label(for='lastName') Last Name:
+            input.form-control(type='text' placeholder='last name should be 5-50 characters' name='lastName')
+        .row
+          .form-group.col-xs-6
+            .form-group
+              label(for='idnumber') ID:
+              input.form-control(type='number' placeholder='assign unique ID' name='idnumber')
+          .form-group.col-xs-6
+            .form-group
+              label(for='ward') Ward:
+              input.form-control(type='text' placeholder='ward represented' name='ward')
+        .row
+          .form-group
+            .form-group.col-xs-2
+              label(for='gender') Gender:
+            .form-group.col-xs-2
+              .form-check
+                input#male.form-check-input(type='radio' name='gender' value='male')
+                label.form-check-label(for='male')  Male 
+            .form-group.col-xs-2
+              .form-check
+                input#female.form-check-input(type='radio' name='gender' value='female')
+                label.form-check-label(for='female')  Female 
+        .row
+          .form-group.col-xs-6
+            .form-group
+              label(for='dateOfReg') Date of Registration:
+              input.form-control(type='date' placeholder='date of registration' name='dateOfReg')
+          .form-group.col-xs-6
+            .form-group
+              label(for='dateOfBirth') Date of Birth:
+              input.form-control(type='date' placeholder='date of birth' name='dateOfBirth')
+        .row
+          .form-group.col-xs-6
+            label(for='NIN') NIN:
+            input.form-control(type='text' placeholder='National identification number' name='NIN')
+          .form-group.col-xs-6
+            label(for='phone') Mobile Number:
+            input.form-control(type='number' placeholder='phone number' name='phone')
+        .row
+          .form-group.col-xs-6
+            label(for='address') Home Address:
+            input.form-control(type='text' placeholder='place of residence' name='address')
+          .form-group.col-xs-6
+            label(for='residence') Residence type:
+            input.form-control(type='text' placeholder='' name='residence')
+        .row
+          .form-group.col-xs-4
+            label(for='stay') Period of stay:
+            input.form-control(type='number' placeholder='must have lived for more than 10 years & above' name='stay')
+        .text-center
+          button.btn.btn-primary(class='button' href='/register') Register

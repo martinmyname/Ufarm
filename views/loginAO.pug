@@ -1,0 +1,21 @@
+extends layout
+block content
+    #foot.container.listing-reg
+      h2(style='text-align: center') FARMER-ONE Sign Up form.
+      h5(style='text-align: center;color:red;')
+        | *Only filled by Agricultural officer*
+      form(name='regFarmerOne' action='/users/regFarmerOne' method='POST')
+        .row
+          .form-group.col-xs-6
+            label(for='firstName') First Name:
+            input.form-control(type='text' placeholder='first name should be 5-50 characters' name='firstName')
+          .form-group.col-xs-6
+            label(for='lastName') Last Name:
+            input.form-control(type='text' placeholder='last name should be 5-50 characters' name='lastName')
+        .row
+          .form-group.col-xs-6
+            .form-group
+              label(for='idnumber') ID:
+              input.form-control(type='number' placeholder='assign unique ID' name='idnumber')
+        .text-center
+          button.btn.btn-primary(class='button' href='/register') Register

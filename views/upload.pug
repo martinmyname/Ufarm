@@ -1,0 +1,69 @@
+extends layout
+block content
+  form.form-horizontal(name='upload' action='/' method='POST' enctype="multipart/form-data")
+    fieldset 
+      h3 Ufarm-product Upload
+      h6.text-danger *Only Ufarm Urban farmers are authorised to upload produce*
+      .form-group
+        label.col-md-4.control-label(for='product_id') Product ID
+        .col-md-4
+          input#product_id.form-control.input-md(name='product_id' placeholder='input Unique ID' required='' type='text')
+      .form-group
+        label.col-md-4.control-label(for='product_name') Product Name
+        .col-md-4
+          input#product_name.form-control.input-md(name='product_name' placeholder='name of produce' required='' type='text')
+      .form-group
+        label.col-md-4.control-label(for='product_quantity') Product Quantity(Kg)
+        .col-md-4
+          input#product_quantity.form-control.input-md(name='product_quantity' placeholder='units of product in stock' required='' type='number')
+      .form-group
+        label Produce type:  &nbsp
+        label.form-check.form-check-inline 
+          span.form-check-label Organic     &nbsp
+          input.form-check-input(type="checkbox" name="produce_type" value="Organic")
+        label.form-check.form-check-inline 
+          span.form-check-label Inorganic   &nbsp
+          input.form-check-input(type="checkbox" name="produce_type" value="Inorganic")
+      .form-group
+        label Produce Availability:  &nbsp
+        label.form-check.form-check-inline 
+          span.form-check-label Available    &nbsp
+          input.form-check-input(type="checkbox" name="produce_availability" value="Available")
+        label.form-check.form-check-inline 
+          span.form-check-label Out of stock   &nbsp
+          input.form-check-input(type="checkbox" name="produce_availability" value="N/A")
+
+      .form-group
+        label.col-md-4.control-label(for='price') Price per Kg
+        .col-md-4
+          input#price.form-control.input-md(name='price' placeholder='price for each Kg' required='' type='number')
+      .form-group
+        label.col-md-4.control-label(for='directions' placeholder='Directions to pickup location') Direction
+        .col-md-4
+          textarea#directions.form-control(name='directions')
+      .form-group
+      label.col-md-4.control-label(for='ward') Ward
+      .col-md-4
+        input#ward.form-control.input-md(name='ward' placeholder='ward you come from' required='' type='text')
+      .form-group
+        label Mode of payment:  &nbsp
+        label.form-check.form-check-inline 
+          span.form-check-label Cash     &nbsp
+          input.form-check-input(type="checkbox" name="Mode_of_payment" value="Cash")
+        label.form-check.form-check-inline 
+          span.form-check-label Mobile money   &nbsp
+          input.form-check-input(type="checkbox" name="Mode_of_payment" value="Mobile money")
+      .form-group 
+        label Mode of Delivery:  &nbsp
+        label.form-check.form-check-inline 
+          span.form-check-label Pick up     &nbsp
+          input.form-check-input(type="checkbox" name="Mode_of_delivery" value="Pick up")
+        label.form-check.form-check-inline 
+          span.form-check-label home delivery   &nbsp
+          input.form-check-input(type="checkbox" name="Mode_of_delivery" value="home delivery")
+      .form-group
+        label.col-md-4.control-label(for="file") Product image
+        .col-md-4
+          input#filebutton.input-file.border(name="image"  accept="image/*" type="file")
+      .form-group
+      button#upload.btn.btn-primary(name='upload' type="submit" href='/') Upload
