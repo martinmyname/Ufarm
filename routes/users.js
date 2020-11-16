@@ -23,7 +23,7 @@ router.post("/regFarmerOne", (req, res) => {
   farmerOne
     .save()
     .then(() => {
-      res.send("thank for registering");
+      res.redirect("/users/farmerOnes");
     })
     .catch((err) => {
       console.log(err);

@@ -1,7 +1,7 @@
 extends layout
 block content
     if farmerOne.length
-        table.listing-table.table-dark.table-striped
+        table.listing-table.table-light.table-striped
             tr
                 th FirstName
                 th LastName
@@ -33,6 +33,8 @@ block content
                         button.btn.btn-dark.btn-block(type="submit")
                             a(href='/users/update/'+farmer._id) Update
             button.btn.btn-dark.mx-auto.d-block
-                a(href='/users/regUrbanFarmer/') Add FarmerOne
+                a(href='/users/regFarmerOne/') Add FarmerOne
     else
         p No registrations have been done at the moment :(
+        button.btn.btn-dark.mx-auto.d-block
+                a(href='/users/regFarmerOne/') Add FarmerOne

@@ -10,6 +10,7 @@ const upload = new mongoose.Schema({
   ward: String,
   Mode_of_payment: String,
   Mode_of_delivery: String,
+  phone: Number,
   image: { contentType: String, path: String, image: Buffer },
 });
 

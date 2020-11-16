@@ -14,11 +14,12 @@ router.get("/upload", (req, res) => {
 });
 
 router.use(bodyParser.urlencoded({ extended: true }));
+// router.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 // Define the photo paths
 var storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads");
+    cb(null, "./uploads/");
   },
   filename: function (req, file, cb) {
     cb(
@@ -59,6 +60,7 @@ router.post("/", upload.single("image"), (req, res, next) => {
     ward: req.body.ward,
     Mode_of_payment: req.body.Mode_of_payment,
     Mode_of_delivery: req.body.Mode_of_delivery,
+    phone: req.body.phone,
     image: {
       contentType: req.file.mimetype,
       path: req.file.path,
@@ -72,7 +74,7 @@ router.post("/", upload.single("image"), (req, res, next) => {
     })
     .catch((err) => {
       console.log(err);
-      res.send("something went wrong,");
+      res.send("something went wrong, product not saved");
     });
 });
 
@@ -81,8 +83,6 @@ router.get("/", (req, res) => {
   product
     .find()
     .then((product) => {
-      // res.contentType(myProduct.image.contentType);
-      // res.send(image.myProduct.image);
       res.render("index.pug", { title: "Ufarm", product });
     })
     .catch(() => {
