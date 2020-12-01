@@ -71,6 +71,7 @@ router.get("/urbanFarmers", (req, res) => {
     });
 });
 
+//updating farmer one details.
 router.get("/update/:id", async (req, res) => {
   try {
     const updateUser = await FarmerOne.findOne({ _id: req.params.id });
@@ -89,4 +90,22 @@ router.post("/update", async (req, res) => {
   }
 });
 
+//updating urban farmer details
+router.get("/update/uf/:id", async (req, res) => {
+  try {
+    const updateUserUF = await UrbanFarmer.findOne({ _id: req.params.id });
+    res.render("updateUF", { farmer: updateUserUF });
+  } catch (err) {
+    res.status(400).send("Unable to find farmerOne in the database");
+  }
+});
+
+router.post("/update/uf", async (req, res) => {
+  try {
+    await UrbanFarmer.findOneAndUpdate({ _id: req.query.id }, req.body);
+    res.render("urbanFarmers.pug");
+  } catch (err) {
+    res.status(404).send("Unable to update Urban Farmer in the database");
+  }
+});
 module.exports = router;

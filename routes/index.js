@@ -48,8 +48,6 @@ var upload = multer({ storage: storage });
 
 //Option 2 for posting image
 router.post("/", upload.single("image"), (req, res, next) => {
-  const img = fs.readFileSync(req.file.path);
-  const encode_image = img.toString("base64");
   const myProduct = new product({
     product_id: req.body.product_id,
     product_name: req.body.product_name,
@@ -61,11 +59,7 @@ router.post("/", upload.single("image"), (req, res, next) => {
     Mode_of_payment: req.body.Mode_of_payment,
     Mode_of_delivery: req.body.Mode_of_delivery,
     phone: req.body.phone,
-    image: {
-      contentType: req.file.mimetype,
-      path: req.file.path,
-      image: (encode_image, "base64"),
-    },
+    image: req.file.filename,
   });
   myProduct
     .save()

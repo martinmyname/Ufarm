@@ -10,8 +10,8 @@ const upload = new mongoose.Schema({
   ward: String,
   Mode_of_payment: String,
   Mode_of_delivery: String,
-  phone: Number,
-  image: { contentType: String, path: String, image: Buffer },
+  phone: String,
+  image: String,
 });
 
 module.exports = mongoose.model("product", upload);

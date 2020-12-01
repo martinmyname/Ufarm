@@ -1,6 +1,5 @@
 extends layout
 block content
-
     h6 FarmerOne Dashboard &nbsp *Official use Only* &nbsp
         if urbanFarmer.length
             table.listing-table.table-light.table-striped
@@ -27,7 +26,7 @@ block content
                         td #{farmer.phone}
                         td
                             button.btn.btn-dark.btn-block(type="submit")
-                                a(href='/users/update/'+farmer._id) Update
+                                a(href='/users/update/uf/'+farmer._id) Update
                 button.btn.btn-dark.mx-auto.d-block
                     a(href='/users/regUrbanFarmer/') Add Urban Farmer
         else

@@ -4,6 +4,7 @@ const bodyParser = require("body-parser");
 const usersRoutes = require("./routes/users.js");
 const Ufarm = require("./routes/index.js");
 const login = require("./routes/loginRoutes.js");
+const Login = require("./models/login");
 
 require("dotenv").config();
 const mongoose = require("mongoose");
@@ -33,11 +34,16 @@ app.use(expressSession);
 const passport = require("passport");
 app.use(passport.initialize());
 app.use(passport.session());
+
+//Passport in use
+passport.use(Login.createStrategy());
+passport.serializeUser(Login.serializeUser());
+passport.deserializeUser(Login.deserializeUser());
+
 //all routes on the home root"/"
 app.use("/", Ufarm);
 //all routes on the users' root "/users"
 app.use("/users", usersRoutes);
-
 app.use("/login", login);
 
 //connect database
@@ -54,6 +60,19 @@ mongoose.connection
   .on("error", (err) => {
     console.log(`Connection error: ${err.message}`);
   });
+
+//logout
+app.post("/logout", (req, res) => {
+  if (req.session) {
+    req.session.destroy((err) => {
+      if (err) {
+        // failed to destroy session
+      } else {
+        return res.redirect("/login");
+      }
+    });
+  }
+});
 
 //Error page incase of accessing a wrong route
 app.get("*", (req, res) => {

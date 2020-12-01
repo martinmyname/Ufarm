@@ -11,33 +11,13 @@ block content
                 img(src='/'+produce.image height='' width='' alt=`${produce.product_name} ${produce.product_id}`)
                 h5.card-title
                   .text-left
-                    i #{produce.product_name}: #{produce.price}Ugx
+                    i #{produce.product_name}@ #{produce.price}Ugx
                     br
                     i Quantity:#{produce.product_quantity} kg(s)
                 h5.item-card-title Type:#{produce.produce_type} &nbsp Ward:#{produce.ward}
                 .card-text 
                   p Payment:#{produce.Mode_of_payment} &nbsp Delivery:#{produce.Mode_of_delivery}
                   p Directions #{produce.directions}
-                button#purchase.btn.btn-primary(name="purchase" onclick="phone()" value=produce.phone) purchase
+                button#purchase.btn.btn-primary(name=produce._id onclick="phone()" value=produce.phone) purchase
         else
         h4.text-primary You are all caught up at the moment, check back soon for new products
-      //- .row
-      //-   .col-md-6.col-sm-6.item
-      //-     .card.item-card.card-block
-      //-       img(src='https://static.pexels.com/photos/7096/people-woman-coffee-meeting.jpg' alt='Photo of sunset')
-      //-       h4.card-title.text-left
-      //-         i settings
-      //-       h4.card-title.text-right
-      //-         i settings
-      //-       h5.item-card-title.mt-3.mb-3 Sierra Web Development &bull; Owner
-      //-       p.card-text This is a company that builds websites, web apps and e-commerce solutions.
-      //- h4 #{produce.product_name}: #{produce.price}Ugx
-      //- h5 Quantity:#{produce.product_quantity} kg(s)
-      //- p  Type:#{produce.produce_type} &nbsp Ward:#{produce.ward}
-      //- p Payment:#{produce.Mode_of_payment} &nbsp Delivery:#{produce.Mode_of_delivery}
-      //- a(href='#{produce.directions}' target='_blank')
-      //-   i.fas.fa-directions 
-      //- button#purchase.btn.btn-primary(name="purchase")
-      //-   a(href="/checkout/+#{product}") purchase
-      //- img(src=produce.image)
-      //- img(src=`..\\`+produce.image.path)
